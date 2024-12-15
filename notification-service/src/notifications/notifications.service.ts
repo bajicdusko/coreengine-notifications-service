@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { CreateNotificationDto, NotificationType } from './dto/create-notification.dto';
+import { CreateNotificationDto, NotificationType } from '@notifications/dto/create-notification.dto';
 import { EmailService } from '@email/email.service';
 import { SmsService } from '@sms/sms.service';
 import { PushService } from '@push/push.service';
 import { ErrorHandlingService } from '@shared/services/error-handling.service';
 import { LoggerService } from '@shared/services/logger.service';
-import { NotificationValidationException, NotificationProviderException } from './exceptions/notification.exceptions';
+import { NotificationValidationException, NotificationProviderException } from '@notifications/exceptions/notification.exceptions';
 
 @Injectable()
 export class NotificationsService {

@@ -1,6 +1,6 @@
 import { Controller, Post, Body, ValidationPipe } from '@nestjs/common';
-import { NotificationsService } from './notifications.service';
-import { CreateNotificationDto } from './dto/create-notification.dto';
+import { NotificationsService } from '@notifications/notifications.service';
+import { CreateNotificationDto } from '@notifications/dto/create-notification.dto';
 
 @Controller('notifications')
 export class NotificationsController {
