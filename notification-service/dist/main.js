@@ -27,22 +27,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppModule = void 0;
 const common_1 = __webpack_require__(2);
-const config_1 = __webpack_require__(4);
-const notifications_module_1 = __webpack_require__(5);
+const notifications_module_1 = __webpack_require__(4);
 const email_module_1 = __webpack_require__(27);
-const sms_module_1 = __webpack_require__(30);
-const push_module_1 = __webpack_require__(33);
-const shared_module_1 = __webpack_require__(36);
+const sms_module_1 = __webpack_require__(35);
+const push_module_1 = __webpack_require__(40);
+const shared_module_1 = __webpack_require__(45);
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_1.ConfigModule.forRoot({
-                envFilePath: ['.env', '.env.email', '.env.sms', '.env.push'],
-                isGlobal: true,
-            }),
             notifications_module_1.NotificationsModule,
             email_module_1.EmailModule,
             sms_module_1.SmsModule,
@@ -55,12 +50,6 @@ exports.AppModule = AppModule = __decorate([
 
 /***/ }),
 /* 4 */
-/***/ ((module) => {
-
-module.exports = require("@nestjs/config");
-
-/***/ }),
-/* 5 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -73,11 +62,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NotificationsModule = void 0;
 const common_1 = __webpack_require__(2);
-const notifications_controller_1 = __webpack_require__(6);
-const notifications_service_1 = __webpack_require__(7);
+const notifications_controller_1 = __webpack_require__(5);
+const notifications_service_1 = __webpack_require__(6);
 const email_module_1 = __webpack_require__(27);
-const sms_module_1 = __webpack_require__(30);
-const push_module_1 = __webpack_require__(33);
+const sms_module_1 = __webpack_require__(35);
+const push_module_1 = __webpack_require__(40);
 let NotificationsModule = class NotificationsModule {
 };
 exports.NotificationsModule = NotificationsModule;
@@ -91,7 +80,7 @@ exports.NotificationsModule = NotificationsModule = __decorate([
 
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -111,8 +100,8 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NotificationsController = void 0;
 const common_1 = __webpack_require__(2);
-const notifications_service_1 = __webpack_require__(7);
-const create_notification_dto_1 = __webpack_require__(8);
+const notifications_service_1 = __webpack_require__(6);
+const create_notification_dto_1 = __webpack_require__(7);
 let NotificationsController = class NotificationsController {
     constructor(notificationsService) {
         this.notificationsService = notificationsService;
@@ -136,7 +125,7 @@ exports.NotificationsController = NotificationsController = __decorate([
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -153,8 +142,8 @@ var _a, _b, _c, _d, _e;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NotificationsService = void 0;
 const common_1 = __webpack_require__(2);
-const create_notification_dto_1 = __webpack_require__(8);
-const email_service_1 = __webpack_require__(10);
+const create_notification_dto_1 = __webpack_require__(7);
+const email_service_1 = __webpack_require__(9);
 const sms_service_1 = __webpack_require__(18);
 const push_service_1 = __webpack_require__(22);
 const error_handling_service_1 = __webpack_require__(13);
@@ -219,7 +208,7 @@ exports.NotificationsService = NotificationsService = __decorate([
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -234,7 +223,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateNotificationDto = exports.NotificationType = void 0;
-const class_validator_1 = __webpack_require__(9);
+const class_validator_1 = __webpack_require__(8);
 var NotificationType;
 (function (NotificationType) {
     NotificationType["EMAIL"] = "email";
@@ -267,13 +256,13 @@ __decorate([
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ ((module) => {
 
 module.exports = require("class-validator");
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -290,7 +279,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.EmailService = void 0;
 const common_1 = __webpack_require__(2);
-const config_1 = __webpack_require__(4);
+const config_1 = __webpack_require__(10);
 const nodemailer = __webpack_require__(11);
 const email_error_service_1 = __webpack_require__(12);
 let EmailService = class EmailService {
@@ -342,6 +331,12 @@ exports.EmailService = EmailService = __decorate([
     __metadata("design:paramtypes", [typeof (_a = typeof config_1.ConfigService !== "undefined" && config_1.ConfigService) === "function" ? _a : Object, typeof (_b = typeof email_error_service_1.EmailErrorService !== "undefined" && email_error_service_1.EmailErrorService) === "function" ? _b : Object])
 ], EmailService);
 
+
+/***/ }),
+/* 10 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/config");
 
 /***/ }),
 /* 11 */
@@ -589,7 +584,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SmsService = void 0;
 const common_1 = __webpack_require__(2);
-const config_1 = __webpack_require__(4);
+const config_1 = __webpack_require__(10);
 const twilio_1 = __webpack_require__(19);
 const sms_error_service_1 = __webpack_require__(20);
 let SmsService = class SmsService {
@@ -734,7 +729,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PushService = void 0;
 const common_1 = __webpack_require__(2);
-const config_1 = __webpack_require__(4);
+const config_1 = __webpack_require__(10);
 const admin = __webpack_require__(23);
 const push_error_service_1 = __webpack_require__(24);
 let PushService = class PushService {
@@ -919,15 +914,32 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.EmailModule = void 0;
 const common_1 = __webpack_require__(2);
-const email_service_1 = __webpack_require__(10);
+const config_1 = __webpack_require__(10);
+const email_service_1 = __webpack_require__(9);
 const email_controller_1 = __webpack_require__(28);
+const email_error_service_1 = __webpack_require__(12);
+const email_config_1 = __webpack_require__(30);
+const config_validator_1 = __webpack_require__(31);
+const email_config_schema_1 = __webpack_require__(33);
+const path_1 = __webpack_require__(34);
 let EmailModule = class EmailModule {
 };
 exports.EmailModule = EmailModule;
 exports.EmailModule = EmailModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            config_1.ConfigModule.forFeature(email_config_1.default),
+            config_1.ConfigModule.forRoot({
+                envFilePath: (0, path_1.join)(__dirname, 'config', 'env', '.env.email'),
+                validate: (config) => (0, config_validator_1.validateConfig)(config, email_config_schema_1.EmailConfigSchema),
+                validationOptions: {
+                    allowUnknown: true,
+                    abortEarly: true,
+                },
+            }),
+        ],
         controllers: [email_controller_1.EmailController],
-        providers: [email_service_1.EmailService],
+        providers: [email_service_1.EmailService, email_error_service_1.EmailErrorService],
         exports: [email_service_1.EmailService],
     })
 ], EmailModule);
@@ -954,7 +966,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.EmailController = void 0;
 const common_1 = __webpack_require__(2);
-const email_service_1 = __webpack_require__(10);
+const email_service_1 = __webpack_require__(9);
 const send_email_dto_1 = __webpack_require__(29);
 let EmailController = class EmailController {
     constructor(emailService) {
@@ -994,7 +1006,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SendEmailDto = void 0;
-const class_validator_1 = __webpack_require__(9);
+const class_validator_1 = __webpack_require__(8);
 class SendEmailDto {
 }
 exports.SendEmailDto = SendEmailDto;
@@ -1022,6 +1034,98 @@ __decorate([
 
 /***/ }),
 /* 30 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const config_1 = __webpack_require__(10);
+exports["default"] = (0, config_1.registerAs)('email', () => ({
+    service: process.env.EMAIL_SERVICE || 'gmail',
+    user: process.env.EMAIL_SERVICE_USER,
+    pass: process.env.EMAIL_SERVICE_PASS,
+    from: process.env.EMAIL_FROM || process.env.EMAIL_SERVICE_USER,
+}));
+
+
+/***/ }),
+/* 31 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.validateConfig = validateConfig;
+const class_transformer_1 = __webpack_require__(32);
+const class_validator_1 = __webpack_require__(8);
+function validateConfig(config, ValidationClass) {
+    const validatedConfig = (0, class_transformer_1.plainToInstance)(ValidationClass, config, {
+        enableImplicitConversion: true,
+    });
+    const errors = (0, class_validator_1.validateSync)(validatedConfig, {
+        skipMissingProperties: false,
+    });
+    if (errors.length > 0) {
+        throw new Error(errors.toString());
+    }
+    return validatedConfig;
+}
+
+
+/***/ }),
+/* 32 */
+/***/ ((module) => {
+
+module.exports = require("class-transformer");
+
+/***/ }),
+/* 33 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.EmailConfigSchema = void 0;
+const class_validator_1 = __webpack_require__(8);
+class EmailConfigSchema {
+}
+exports.EmailConfigSchema = EmailConfigSchema;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], EmailConfigSchema.prototype, "service", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], EmailConfigSchema.prototype, "user", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], EmailConfigSchema.prototype, "pass", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    __metadata("design:type", String)
+], EmailConfigSchema.prototype, "from", void 0);
+
+
+/***/ }),
+/* 34 */
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ }),
+/* 35 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1034,22 +1138,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SmsModule = void 0;
 const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(10);
 const sms_service_1 = __webpack_require__(18);
-const sms_controller_1 = __webpack_require__(31);
+const sms_controller_1 = __webpack_require__(36);
+const sms_error_service_1 = __webpack_require__(20);
+const sms_config_1 = __webpack_require__(38);
+const config_validator_1 = __webpack_require__(31);
+const sms_config_schema_1 = __webpack_require__(39);
+const path_1 = __webpack_require__(34);
 let SmsModule = class SmsModule {
 };
 exports.SmsModule = SmsModule;
 exports.SmsModule = SmsModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            config_1.ConfigModule.forFeature(sms_config_1.default),
+            config_1.ConfigModule.forRoot({
+                envFilePath: (0, path_1.join)(__dirname, 'config', 'env', '.env.sms'),
+                validate: (config) => (0, config_validator_1.validateConfig)(config, sms_config_schema_1.SmsConfigSchema),
+                validationOptions: {
+                    allowUnknown: true,
+                    abortEarly: true,
+                },
+            }),
+        ],
         controllers: [sms_controller_1.SmsController],
-        providers: [sms_service_1.SmsService],
+        providers: [sms_service_1.SmsService, sms_error_service_1.SmsErrorService],
         exports: [sms_service_1.SmsService],
     })
 ], SmsModule);
 
 
 /***/ }),
-/* 31 */
+/* 36 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1070,7 +1191,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SmsController = void 0;
 const common_1 = __webpack_require__(2);
 const sms_service_1 = __webpack_require__(18);
-const send_sms_dto_1 = __webpack_require__(32);
+const send_sms_dto_1 = __webpack_require__(37);
 let SmsController = class SmsController {
     constructor(smsService) {
         this.smsService = smsService;
@@ -1094,7 +1215,7 @@ exports.SmsController = SmsController = __decorate([
 
 
 /***/ }),
-/* 32 */
+/* 37 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1109,7 +1230,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SendSmsDto = void 0;
-const class_validator_1 = __webpack_require__(9);
+const class_validator_1 = __webpack_require__(8);
 class SendSmsDto {
 }
 exports.SendSmsDto = SendSmsDto;
@@ -1126,7 +1247,58 @@ __decorate([
 
 
 /***/ }),
-/* 33 */
+/* 38 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const config_1 = __webpack_require__(10);
+exports["default"] = (0, config_1.registerAs)('sms', () => ({
+    accountSid: process.env.TWILIO_ACCOUNT_SID,
+    authToken: process.env.TWILIO_AUTH_TOKEN,
+    fromNumber: process.env.TWILIO_FROM_NUMBER,
+}));
+
+
+/***/ }),
+/* 39 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SmsConfigSchema = void 0;
+const class_validator_1 = __webpack_require__(8);
+class SmsConfigSchema {
+}
+exports.SmsConfigSchema = SmsConfigSchema;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], SmsConfigSchema.prototype, "accountSid", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], SmsConfigSchema.prototype, "authToken", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], SmsConfigSchema.prototype, "fromNumber", void 0);
+
+
+/***/ }),
+/* 40 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1139,22 +1311,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PushModule = void 0;
 const common_1 = __webpack_require__(2);
+const config_1 = __webpack_require__(10);
 const push_service_1 = __webpack_require__(22);
-const push_controller_1 = __webpack_require__(34);
+const push_controller_1 = __webpack_require__(41);
+const push_error_service_1 = __webpack_require__(24);
+const push_config_1 = __webpack_require__(43);
+const config_validator_1 = __webpack_require__(31);
+const push_config_schema_1 = __webpack_require__(44);
+const path_1 = __webpack_require__(34);
 let PushModule = class PushModule {
 };
 exports.PushModule = PushModule;
 exports.PushModule = PushModule = __decorate([
     (0, common_1.Module)({
+        imports: [
+            config_1.ConfigModule.forFeature(push_config_1.default),
+            config_1.ConfigModule.forRoot({
+                envFilePath: (0, path_1.join)(__dirname, 'config', 'env', '.env.push'),
+                validate: (config) => (0, config_validator_1.validateConfig)(config, push_config_schema_1.PushConfigSchema),
+                validationOptions: {
+                    allowUnknown: true,
+                    abortEarly: true,
+                },
+            }),
+        ],
         controllers: [push_controller_1.PushController],
-        providers: [push_service_1.PushService],
+        providers: [push_service_1.PushService, push_error_service_1.PushErrorService],
         exports: [push_service_1.PushService],
     })
 ], PushModule);
 
 
 /***/ }),
-/* 34 */
+/* 41 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1175,7 +1364,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PushController = void 0;
 const common_1 = __webpack_require__(2);
 const push_service_1 = __webpack_require__(22);
-const send_push_dto_1 = __webpack_require__(35);
+const send_push_dto_1 = __webpack_require__(42);
 let PushController = class PushController {
     constructor(pushService) {
         this.pushService = pushService;
@@ -1199,7 +1388,7 @@ exports.PushController = PushController = __decorate([
 
 
 /***/ }),
-/* 35 */
+/* 42 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1215,7 +1404,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SendPushDto = void 0;
-const class_validator_1 = __webpack_require__(9);
+const class_validator_1 = __webpack_require__(8);
 class SendPushDto {
 }
 exports.SendPushDto = SendPushDto;
@@ -1242,7 +1431,58 @@ __decorate([
 
 
 /***/ }),
-/* 36 */
+/* 43 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const config_1 = __webpack_require__(10);
+exports["default"] = (0, config_1.registerAs)('push', () => ({
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+}));
+
+
+/***/ }),
+/* 44 */
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PushConfigSchema = void 0;
+const class_validator_1 = __webpack_require__(8);
+class PushConfigSchema {
+}
+exports.PushConfigSchema = PushConfigSchema;
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], PushConfigSchema.prototype, "projectId", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], PushConfigSchema.prototype, "privateKey", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNotEmpty)(),
+    __metadata("design:type", String)
+], PushConfigSchema.prototype, "clientEmail", void 0);
+
+
+/***/ }),
+/* 45 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1255,11 +1495,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SharedModule = void 0;
 const common_1 = __webpack_require__(2);
-const nest_winston_1 = __webpack_require__(37);
+const nest_winston_1 = __webpack_require__(46);
 const error_handling_service_1 = __webpack_require__(13);
 const logger_service_1 = __webpack_require__(14);
-const logger_config_1 = __webpack_require__(38);
-const global_exception_filter_1 = __webpack_require__(39);
+const logger_config_1 = __webpack_require__(47);
+const global_exception_filter_1 = __webpack_require__(48);
 const core_1 = __webpack_require__(1);
 let SharedModule = class SharedModule {
 };
@@ -1288,20 +1528,20 @@ exports.SharedModule = SharedModule = __decorate([
 
 
 /***/ }),
-/* 37 */
+/* 46 */
 /***/ ((module) => {
 
 module.exports = require("nest-winston");
 
 /***/ }),
-/* 38 */
+/* 47 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.loggerConfig = void 0;
 const winston = __webpack_require__(15);
-const nest_winston_1 = __webpack_require__(37);
+const nest_winston_1 = __webpack_require__(46);
 exports.loggerConfig = {
     transports: [
         new winston.transports.Console({
@@ -1333,7 +1573,7 @@ exports.loggerConfig = {
 
 
 /***/ }),
-/* 39 */
+/* 48 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -1412,7 +1652,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core_1 = __webpack_require__(1);
 const common_1 = __webpack_require__(2);
 const app_module_1 = __webpack_require__(3);
-const global_exception_filter_1 = __webpack_require__(39);
+const global_exception_filter_1 = __webpack_require__(48);
 const error_handling_service_1 = __webpack_require__(13);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
