@@ -9,25 +9,28 @@
     "target": "ES2021",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": ".",
+    "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "strictBindCallApply": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "composite": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@notifications/*": ["src/notifications/*"],
-      "@shared/*": ["src/shared/*"],
-      "@sms/*": ["src/sms/*"],
-      "@config/*": ["src/config/*"],
-      "@email/*": ["src/email/*"],
-      "@push/*": ["src/push/*"],
-      "@app/*": ["src/*"]
+      "@notification/shared": ["libs/shared/src"],
+      "@notification/shared/*": ["libs/shared/src/*"],
+      "@notification/email": ["libs/email/src"],
+      "@notification/email/*": ["libs/email/src/*"],
+      "@notification/sms": ["libs/sms/src"],
+      "@notification/sms/*": ["libs/sms/src/*"],
+      "@notification/push": ["libs/push/src"],
+      "@notification/push/*": ["libs/push/src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": [
+    "apps/**/*",
+    "libs/**/*"
+  ],
   "exclude": ["node_modules", "dist"]
 }

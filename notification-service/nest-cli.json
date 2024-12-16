@@ -1,10 +1,59 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "monorepo": true,
+  "root": "apps/notifications",
+  "sourceRoot": "apps/notifications/src",
   "compilerOptions": {
-    "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "tsconfig.json"
+    "tsConfigPath": "tsconfig.json",
+    "deleteOutDir": true
+  },
+  "projects": {
+    "notifications": {
+      "type": "application",
+      "root": "apps/notifications",
+      "entryFile": "main",
+      "sourceRoot": "apps/notifications/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/notifications/tsconfig.app.json"
+      }
+    },
+    "shared": {
+      "type": "library",
+      "root": "libs/shared",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "email": {
+      "type": "library",
+      "root": "libs/email",
+      "entryFile": "index",
+      "sourceRoot": "libs/email/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/email/tsconfig.lib.json"
+      }
+    },
+    "sms": {
+      "type": "library",
+      "root": "libs/sms",
+      "entryFile": "index",
+      "sourceRoot": "libs/sms/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/sms/tsconfig.lib.json"
+      }
+    },
+    "push": {
+      "type": "library",
+      "root": "libs/push",
+      "entryFile": "index",
+      "sourceRoot": "libs/push/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/push/tsconfig.lib.json"
+      }
+    }
   }
 }

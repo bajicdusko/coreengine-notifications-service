@@ -1,0 +1,10 @@
+{
+  "name": "@notification/push",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.3.0",
+    "@notification/shared": "^0.0.1",
+    "firebase-admin": "^13.0.1"
+  }
+}

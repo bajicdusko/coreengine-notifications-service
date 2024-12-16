@@ -1,0 +1,78 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IDE - JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IDE - Other
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Project specific
+notification-service/dist/
+notification-service/node_modules/
+notification-service/coverage/
+notification-service/logs/
+
+# Apps and Libs specific
+notification-service/apps/*/dist/
+notification-service/apps/*/node_modules/
+notification-service/apps/*/.env
+notification-service/apps/*/coverage/
+
+notification-service/libs/*/dist/
+notification-service/libs/*/node_modules/
+notification-service/libs/*/.env
+notification-service/libs/*/coverage/
+
+# Misc
+.npm
+.eslintcache
+.prettier

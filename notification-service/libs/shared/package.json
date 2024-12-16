@@ -1,0 +1,11 @@
+{
+  "name": "@notification/shared",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.3.0",
+    "@nestjs/core": "^10.0.0",
+    "nest-winston": "^1.9.7",
+    "winston": "^3.17.0"
+  }
+}
